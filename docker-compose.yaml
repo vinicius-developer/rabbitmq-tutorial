@@ -1,0 +1,19 @@
+version: "2.2"
+
+services: 
+
+  rabbitmq: 
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports: 
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+    environment:
+      - VIRTUAL_HOST=dev-painel-rabbitmq.com
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_USER=guest
+
+volumes: 
+  rabbitmqdata: {}
